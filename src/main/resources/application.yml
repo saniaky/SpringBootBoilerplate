@@ -1,0 +1,34 @@
+# Common application properties
+# https://docs.spring.io/spring-boot/docs/current/reference/html/common-application-properties.html
+
+spring:
+    profiles:
+      active: development
+    application:
+        name: kvoka
+    datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost/kvoka?useSSL=false
+        username: root
+        password: root
+        hikari:
+          maximum-pool-size: 10
+
+---
+
+spring:
+    profiles: development
+server:
+    port: 8080
+
+---
+
+spring:
+    profiles: production
+    datasource:
+        driverClassName: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://localhost/kvoka?useSSL=false
+        username: dbuser
+        password: pwd
+server:
+    port: 0
